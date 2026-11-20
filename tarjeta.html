@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta Digital - Marcelo Narváez</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- Librería ligera para generar el QR en el navegador -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: #f1f1f1;
+            font-family: 'Share Tech Mono', monospace, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Diseño de la Tarjeta Digital (formato vertical ideal para pantalla de celular) */
+        .tarjeta {
+            background: linear-gradient(145deg, #181818, #0a0a0a);
+            border: 2px solid #ffc107;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 360px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 12px 35px rgba(255, 193, 7, 0.18);
+        }
+
+        .nombre {
+            color: #ffc107;
+            font-size: 1.65rem;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .perfil {
+            color: #cccccc;
+            font-size: 0.88rem;
+            line-height: 1.4;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 193, 7, 0.3);
+        }
+
+        .llamado {
+            color: #ffffff;
+            font-size: 1.15rem;
+            font-weight: bold;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Marco blanco obligatorio alrededor del QR para que cualquier cámara lo lea rápido */
+        .qr-box {
+            background-color: #ffffff;
+            padding: 14px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .url-texto {
+            color: #ffc107;
+            font-size: 0.78rem;
+            word-break: break-all;
+            margin-bottom: 16px;
+        }
+
+        .datos-contacto {
+            font-size: 0.82rem;
+            color: #bbbbbb;
+            line-height: 1.6;
+        }
+
+        /* Botones externos a la tarjeta (no salen si hacés captura) */
+        .acciones {
+            margin-top: 22px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            background-color: #ffc107;
+            color: #111111;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .btn-secundario {
+            background-color: transparent;
+            color: #ffc107;
+            border: 1px solid #ffc107;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tarjeta" id="tarjeta-digital">
+        <h1 class="nombre">Marcelo Narváez</h1>
+        <p class="perfil">
+            Desarrollador de Software de Escritorio, Aplicaciones Web y Sitios Web
+        </p>
+
+        <p class="llamado">Visitá mi página web</p>
+
+        <div class="qr-box">
+            <div id="qrcode"></div>
+        </div>
+
+        <p class="url-texto">marcelonarvaez19.github.io/SitioWebMarceloNarvaez/</p>
+
+        <div class="datos-contacto">
+            <p>WhatsApp: +54 9 11 6506-7839</p>
+            <p>Email: narvaeztmg@gmail.com</p>
+        </div>
+    </div>
+
+    <div class="acciones">
+        <button class="btn" onclick="descargarQR()">Descargar solo el QR </button>
+        <a href="index.html" class="btn btn-secundario">Volver a la Pagina Web</a>
+    </div>
+
+    <script>
+        // Genera el código QR apuntando exactamente a tu GitHub Pages
+        const contenedorQR = document.getElementById("qrcode");
+        new QRCode(contenedorQR, {
+            text: "https:marcelonarvaez19.github.io/SitioWebMarceloNarvaez/",
+            width: 200,
+            height: 200,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        // Función para descargar el QR en imagen PNG
+        function descargarQR() {
+            const img = contenedorQR.querySelector("img");
+            if (img) {
+                const enlace = document.createElement("a");
+                enlace.href = img.src;
+                enlace.download = "QR-Sitio-Web-Marcelo-Narvaez.png";
+                enlace.click();
+            }
+        }
+    </script>
+
+</body>
+</html>
