@@ -1,11 +1,11 @@
 
 body {
-    background-image: url(img/imgFondo_web.png);
+    background-image: url(img/imgFonfo_Noviembre.webp);
     background-position: center center;
     background-repeat: no repeat; 
     background-attachment: fixed;
     background-size:cover;
-    background-color: brown;
+    background-color: #0d0d0d; /* Color de respaldo mientras carga */
     color: rgb(235, 179, 28);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     position: relative;
