@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Cabeceras de Seguridad -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <title>Aura Estética & Spa | Centro de Belleza Integral - Muestra Web</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primario: #9d174d;
+            --primario-hover: #831843;
+            --rosa-suave: #fdf2f8;
+            --rosa-borde: #fbcfe8;
+            --dorado: #b45309;
+            --verde-wsp: #16a34a;
+            --verde-wsp-hover: #15803d;
+            --texto: #1f2937;
+            --texto-suave: #4b5563;
+            --blanco: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--texto);
+            background-color: var(--blanco);
+            line-height: 1.6;
+        }
+
+        /* Barra superior de demostración para tus clientes */
+        .barra-demo {
+            background-color: #1f1218;
+            color: #f8fafc;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-bottom: 2px solid #ffc107;
+        }
+
+        .barra-demo a {
+            color: #ffc107;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .barra-demo a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--blanco);
+            padding: 18px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 12px rgba(157, 23, 77, 0.07);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primario);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--dorado);
+            font-weight: 600;
+        }
+
+        .btn-nav {
+            background-color: var(--primario);
+            color: var(--blanco);
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .btn-nav:hover {
+            background-color: var(--primario-hover);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fffbeb 100%);
+            padding: 75px 5%;
+            text-align: center;
+        }
+
+        .badge-estudio {
+            display: inline-block;
+            background-color: var(--blanco);
+            color: var(--primario);
+            border: 1px solid var(--rosa-borde);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 8px rgba(157, 23, 77, 0.08);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #500724;
+            max-width: 760px;
+            margin: 0 auto 16px auto;
+            line-height: 1.22;
+        }
+
+        .hero p {
+            font-size: 1.08rem;
+            color: var(--texto-suave);
+            max-width: 620px;
+            margin: 0 auto 32px auto;
+        }
+
+        .cta-grupo {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-wsp {
+            background-color: var(--primario);
+            color: var(--blanco);
+            padding: 14px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 6px 18px rgba(157, 23, 77, 0.25);
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn-wsp:hover {
+            background-color: var(--primario-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-tratamientos {
+            background-color: var(--blanco);
+            color: var(--primario);
+            border: 2px solid var(--primario);
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .btn-tratamientos:hover {
+            background-color: var(--rosa-suave);
+        }
+
+        /* Tratamientos */
+        .seccion {
+            padding: 65px 5%;
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        .encabezado-seccion {
+            text-align: center;
+            margin-bottom: 42px;
+        }
+
+        .encabezado-seccion h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #500724;
+            margin-bottom: 8px;
+        }
+
+        .encabezado-seccion p {
+            color: var(--texto-suave);
+        }
+
+        .grid-servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background-color: var(--blanco);
+            border: 1px solid var(--rosa-borde);
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 26px rgba(157, 23, 77, 0.1);
+            border-color: var(--primario);
+        }
+
+        .icono {
+            width: 54px;
+            height: 54px;
+            background-color: var(--rosa-suave);
+            color: var(--primario);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            color: #500724;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.94rem;
+            color: var(--texto-suave);
+        }
+
+        /* Banda Experiencia / Gift Cards */
+        .banda-experiencia {
+            background-color: var(--rosa-suave);
+            padding: 50px 5%;
+            border-top: 1px solid var(--rosa-borde);
+            border-bottom: 1px solid var(--rosa-borde);
+        }
+
+        .grid-experiencia {
+            max-width: 1050px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            text-align: center;
+        }
+
+        .item-exp h4 {
+            color: var(--primario);
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        .item-exp p {
+            color: var(--texto-suave);
+            font-size: 0.92rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2d0a18;
+            color: #fbcfe8;
+            text-align: center;
+            padding: 35px 5%;
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: var(--blanco);
+        }
+
+        .aviso-demo {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #500724;
+            font-size: 0.8rem;
+            color: #f9a8d4;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .barra-demo {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra superior de navegación hacia tu web de servicios -->
+    <div class="barra-demo">
+        <span>Vista previa de diseño web para clientes (Rubro: Belleza y Estética)</span>
+        <a href="../index.html">← Volver a Servicios Web de Marcelo Narváez</a>
+    </div>
+
+    <header>
+        <div class="logo">✨ Aura <span>Estética</span></div>
+        <a href="#contacto" class="btn-nav">Reservar Turno</a>
+    </header>
+
+    <section class="hero">
+        <span class="badge-estudio">Cosmiatría • Manicuría • Spa Urbano</span>
+        <h1>Tu Espacio de Bienestar y Cuidado Personal</h1>
+        <p>Tratamientos faciales y corporales personalizados con productos dermatológicos de primera línea. Reservá tu turno de forma rápida y sencilla.</p>
+        <div class="cta-grupo">
+            <a href="https://wa.me/5491100000000?text=Hola,%20quisiera%20consultar%20turnos%20y%20precios%20de%20tratamientos" target="_blank" rel="noopener noreferrer" class="btn-wsp">
+                Reservar por WhatsApp
+            </a>
+            <a href="#tratamientos" class="btn-tratamientos">Ver Tratamientos</a>
+        </div>
+    </section>
+
+    <section id="tratamientos" class="seccion">
+        <div class="encabezado-seccion">
+            <h2>Nuestros Tratamientos</h2>
+            <p>Atención personalizada con diagnóstico previo para potenciar tu belleza natural</p>
+        </div>
+
+        <div class="grid-servicios">
+            <div class="card">
+                <div class="icono">🌸</div>
+                <h3>Limpieza Facial Profunda</h3>
+                <p>Higiene facial con punta de diamante, dermaplaning, hidratación intensiva con ácido hialurónico y máscara descongestiva.</p>
+            </div>
+
+            <div class="card">
+                <div class="icono">💅</div>
+                <h3>Manicuría y Kapping</h3>
+                <p>Esmaltado semipermanente, kapping gel fortalecedor, belleza de pies y nail art minimalista con esterilización quirúrgica.</p>
+            </div>
+
+            <div class="card">
+                <div class="icono">👁️</div>
+                <h3>Cejas y Pestañas</h3>
+                <p>Lifting y nutrición de pestañas, laminado de cejas y perfilado personalizado según la armonía de tu rostro.</p>
+            </div>
+
+            <div class="card">
+                <div class="icono">🌿</div>
+                <h3>Masajes y Drenaje</h3>
+                <p>Masajes descontracturantes, relajantes con piedras calientes y drenaje linfático manual en ambiente climatizado.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="banda-experiencia">
+        <div class="grid-experiencia">
+            <div class="item-exp">
+                <h4>✓ Atención con Turno Previo</h4>
+                <p>Sin esperas ni demoras: dedicamos el tiempo exclusivo que cada sesión merece.</p>
+            </div>
+            <div class="item-exp">
+                <h4>✓ Gift Cards para Regalar</h4>
+                <p>Voucher digitales personalizados para cumpleaños, aniversarios y fechas especiales.</p>
+            </div>
+            <div class="item-exp">
+                <h4>✓ Promos en Efectivo y Transferencia</h4>
+                <p>Descuentos especiales en combos mensuales y paquetes de sesiones.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <p><strong>Aura Estética & Spa — Centro de Belleza Integral</strong></p>
+        <p>Turnos por WhatsApp (Ejemplo): (011) 15-0000-0000 • Martes a Sábados de 09:30 a 20:00 hs</p>
+        <div class="aviso-demo">
+            Diseño web demostrativo desarrollado por <strong>Marcelo Narváez</strong> • Sitio responsivo y seguro.
+        </div>
+    </footer>
+
+</body>
+</html>
