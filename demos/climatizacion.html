@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Cabeceras de Seguridad -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <title>ClimaTotal | Instalación y Service de Aire Acondicionado - Muestra Web</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --azul-profundo: #0c4a6e;
+            --cian-frio: #0284c7;
+            --cian-claro: #e0f2fe;
+            --naranja-calor: #ea580c;
+            --verde-wsp: #16a34a;
+            --verde-wsp-hover: #15803d;
+            --texto: #0f172a;
+            --texto-suave: #475569;
+            --blanco: #ffffff;
+            --fondo-gris: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--texto);
+            background-color: var(--blanco);
+            line-height: 1.6;
+        }
+
+        /* Barra superior de demostración para tus clientes */
+        .barra-demo {
+            background-color: #082f49;
+            color: #f8fafc;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-bottom: 2px solid #ffc107;
+        }
+
+        .barra-demo a {
+            color: #ffc107;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .barra-demo a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--blanco);
+            padding: 18px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 12px rgba(12, 74, 110, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--azul-profundo);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--cian-frio);
+        }
+
+        .btn-nav {
+            background-color: var(--cian-frio);
+            color: var(--blanco);
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .btn-nav:hover {
+            background-color: var(--azul-profundo);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
+            color: var(--blanco);
+            padding: 70px 5%;
+            text-align: center;
+        }
+
+        .badge-matriculado {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #e0f2fe;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: 2.35rem;
+            font-weight: 800;
+            max-width: 780px;
+            margin: 0 auto 16px auto;
+            line-height: 1.22;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #e0f2fe;
+            max-width: 640px;
+            margin: 0 auto 32px auto;
+        }
+
+        .cta-grupo {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-wsp {
+            background-color: var(--verde-wsp);
+            color: var(--blanco);
+            padding: 14px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn-wsp:hover {
+            background-color: var(--verde-wsp-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secundario {
+            background-color: var(--blanco);
+            color: var(--azul-profundo);
+            padding: 14px 26px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .btn-secundario:hover {
+            background-color: var(--cian-claro);
+        }
+
+        /* Servicios */
+        .seccion {
+            padding: 65px 5%;
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        .encabezado-seccion {
+            text-align: center;
+            margin-bottom: 42px;
+        }
+
+        .encabezado-seccion h2 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: var(--azul-profundo);
+            margin-bottom: 8px;
+        }
+
+        .encabezado-seccion p {
+            color: var(--texto-suave);
+        }
+
+        .grid-servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background-color: var(--fondo-gris);
+            border: 1px solid #bae6fd;
+            border-radius: 14px;
+            padding: 26px;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 24px rgba(2, 132, 199, 0.12);
+        }
+
+        .icono {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            color: var(--azul-profundo);
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--texto-suave);
+        }
+
+        /* Banda de Garantía de Fábrica */
+        .banda-garantia {
+            background-color: var(--cian-claro);
+            padding: 50px 5%;
+            border-top: 1px solid #7dd3fc;
+            border-bottom: 1px solid #7dd3fc;
+        }
+
+        .grid-garantia {
+            max-width: 1050px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            text-align: center;
+        }
+
+        .item-garantia h4 {
+            color: var(--azul-profundo);
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        .item-garantia p {
+            color: var(--texto-suave);
+            font-size: 0.92rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #082f49;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 35px 5%;
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: var(--blanco);
+        }
+
+        .aviso-demo {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #0c4a6e;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .barra-demo {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra superior de navegación hacia tu web de servicios -->
+    <div class="barra-demo">
+        <span>Vista previa de diseño web para clientes (Rubro: Climatización)</span>
+        <a href="../index.html">← Volver a Servicios Web de Marcelo Narváez</a>
+    </div>
+
+    <header>
+        <div class="logo">❄️ Clima<span>Total</span></div>
+        <a href="#contacto" class="btn-nav">Cotizar Instalación</a>
+    </header>
+
+    <section class="hero">
+        <span class="badge-matriculado">Técnico Matriculado CACAAV • Equipos Split e Inverter</span>
+        <h1>Instalación, Carga de Gas y Service de Aire Acondicionado</h1>
+        <p>Instalaciones prolijas con bomba de vacío y cañerías reglamentarias para conservar la garantía oficial de tu equipo. Atención rápida en hogares y comercios.</p>
+        <div class="cta-grupo">
+            <a href="https://wa.me/5491100000000?text=Hola,%20quisiera%20pedir%20presupuesto%20por%20un%20aire%20acondicionado" target="_blank" rel="noopener noreferrer" class="btn-wsp">
+                Consultar por WhatsApp
+            </a>
+            <a href="#servicios" class="btn-secundario">Ver Servicios</a>
+        </div>
+    </section>
+
+    <section id="servicios" class="seccion">
+        <div class="encabezado-seccion">
+            <h2>Nuestros Servicios</h2>
+            <p>Trabajamos con todas las marcas y frigorías (2250 a 6000 frigorías y pisos-techo)</p>
+        </div>
+
+        <div class="grid-servicios">
+            <div class="card">
+                <span class="icono">🛠️</span>
+                <h3>Instalación Split e Inverter</h3>
+                <p>Colocación con kit completo (caños de cobre, aislación, ménsulas, cableado y desagote) cumpliendo exigencias de garantía.</p>
+            </div>
+
+            <div class="card">
+                <span class="icono">🌡️</span>
+                <h3>Carga de Gas y Detección de Fugas</h3>
+                <p>Presurización con nitrógeno, reparación de pérdidas en tuercas o cañerías y carga precisa de refrigerante R410A y R22.</p>
+            </div>
+
+            <div class="card">
+                <span class="icono">✨</span>
+                <h3>Limpieza y Mantenimiento</h3>
+                <p>Lavado profundo de unidad interior y exterior, limpieza de filtros, turbina y desinfección contra hongos y malos olores.</p>
+            </div>
+
+            <div class="card">
+                <span class="icono">🔄</span>
+                <h3>Desinstalación y Mudanza</h3>
+                <p>Envasado seguro del gas refrigerante en el compresor para desmontar y reubicar tu equipo sin perder carga.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="banda-garantia">
+        <div class="grid-garantia">
+            <div class="item-garantia">
+                <h4>✓ Vacío con Bomba y Vacuómetro</h4>
+                <p>Eliminamos humedad del circuito antes de abrir el gas para alargar la vida útil del compresor.</p>
+            </div>
+            <div class="item-garantia">
+                <h4>✓ Garantía Escrita</h4>
+                <p>Todos nuestros trabajos de instalación y reparación cuentan con respaldo escrito.</p>
+            </div>
+            <div class="item-garantia">
+                <h4>✓ Todos los Medios de Pago</h4>
+                <p>Efectivo, transferencia y cuotas. Presupuesto sin cargo en CABA y GBA.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <p><strong>ClimaTotal — Refrigeración y Aire Acondicionado</strong></p>
+        <p>Turnos por WhatsApp (Ejemplo): (011) 15-0000-0000 • Lunes a Sábados de 08:00 a 20:00 hs</p>
+        <div class="aviso-demo">
+            Diseño web demostrativo desarrollado por <strong>Marcelo Narváez</strong> • Sitio responsivo y seguro.
+        </div>
+    </footer>
+
+</body>
+</html>
