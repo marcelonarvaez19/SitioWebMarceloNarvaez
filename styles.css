@@ -174,6 +174,7 @@ html {
     * {
         box-sizing: border-box;
     }
+}
 
     /* REGLAS RESPONSIVAS PARA CELULARES (pantallas menores a 768px) */
 @media (max-width: 768px) {
@@ -236,4 +237,58 @@ html {
         margin: 12px 10px 18px 10px;
     }
 }
+/* Grilla de botones de maquetas demo */
+.demos-container {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 193, 7, 0.25);
 }
+
+.demos-subtitulo {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    margin-bottom: 16px;
+}
+
+.demos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.btn-demo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: rgba(15, 23, 42, 0.85);
+    color: #ffffff;
+    border: 1.5px solid #ffc107;
+    border-radius: 8px;
+    padding: 13px 16px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+}
+
+.btn-demo:hover {
+    background-color: #ffc107;
+    color: #0f172a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(255, 193, 7, 0.35);
+}
+
+.demo-icono {
+    font-size: 1.2rem;
+}
+
+/* Responsivo para celulares */
+@media (max-width: 600px) {
+    .demos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
