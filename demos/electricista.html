@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Cabeceras de Seguridad -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <title>ElectroSegura | Electricista Matriculado 24hs - Muestra Web</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --oscuro: #0f172a;
+            --oscuro-secundario: #1e293b;
+            --amarillo: #f59e0b;
+            --amarillo-hover: #d97706;
+            --verde-wsp: #16a34a;
+            --verde-wsp-hover: #15803d;
+            --fondo-gris: #f8fafc;
+            --texto: #1e293b;
+            --texto-suave: #475569;
+            --blanco: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--texto);
+            background-color: var(--blanco);
+            line-height: 1.6;
+        }
+
+        /* Barra superior de demostración para tus clientes */
+        .barra-demo {
+            background-color: #090d16;
+            color: #f8fafc;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-bottom: 2px solid #ffc107;
+        }
+
+        .barra-demo a {
+            color: #ffc107;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .barra-demo a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--oscuro);
+            color: var(--blanco);
+            padding: 18px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--amarillo);
+        }
+
+        .btn-urgencia {
+            background-color: var(--amarillo);
+            color: var(--oscuro);
+            padding: 10px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .btn-urgencia:hover {
+            background-color: var(--amarillo-hover);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--oscuro) 0%, var(--oscuro-secundario) 100%);
+            color: var(--blanco);
+            padding: 70px 5%;
+            text-align: center;
+        }
+
+        .badge-urgencia {
+            display: inline-block;
+            background-color: rgba(245, 158, 11, 0.15);
+            color: var(--amarillo);
+            border: 1px solid var(--amarillo);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            max-width: 780px;
+            margin: 0 auto 16px auto;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--amarillo);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            max-width: 630px;
+            margin: 0 auto 32px auto;
+        }
+
+        .cta-grupo {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-wsp {
+            background-color: var(--verde-wsp);
+            color: var(--blanco);
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn-wsp:hover {
+            background-color: var(--verde-wsp-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-presupuesto {
+            background-color: transparent;
+            color: var(--blanco);
+            border: 2px solid #64748b;
+            padding: 12px 26px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .btn-presupuesto:hover {
+            border-color: var(--amarillo);
+            color: var(--amarillo);
+        }
+
+        /* Servicios */
+        .seccion {
+            padding: 65px 5%;
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        .encabezado-seccion {
+            text-align: center;
+            margin-bottom: 42px;
+        }
+
+        .encabezado-seccion h2 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: var(--oscuro);
+            margin-bottom: 8px;
+        }
+
+        .encabezado-seccion p {
+            color: var(--texto-suave);
+        }
+
+        .grid-servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .tarjeta {
+            background-color: var(--fondo-gris);
+            border-left: 4px solid var(--amarillo);
+            border-radius: 10px;
+            padding: 26px;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+            transition: transform 0.25s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-4px);
+        }
+
+        .tarjeta h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            color: var(--oscuro);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tarjeta p {
+            font-size: 0.95rem;
+            color: var(--texto-suave);
+        }
+
+        /* Garantías */
+        .garantias {
+            background-color: var(--oscuro);
+            color: var(--blanco);
+            padding: 50px 5%;
+        }
+
+        .grid-garantias {
+            max-width: 1050px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            text-align: center;
+        }
+
+        .garantia-item h4 {
+            color: var(--amarillo);
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        .garantia-item p {
+            color: #cbd5e1;
+            font-size: 0.92rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #090d16;
+            color: #94a3b8;
+            text-align: center;
+            padding: 35px 5%;
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: var(--blanco);
+        }
+
+        .aviso-demo {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #1e293b;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .barra-demo {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra superior de navegación hacia tu web de servicios -->
+    <div class="barra-demo">
+        <span>Vista previa de diseño web para clientes (Rubro: Electricidad)</span>
+        <a href="../index.html">← Volver a Servicios Web de Marcelo Narváez</a>
+    </div>
+
+    <header>
+        <div class="logo">⚡ Electro<span>Segura</span></div>
+        <a href="#contacto" class="btn-urgencia">Urgencias 24 hs</a>
+    </header>
+
+    <section class="hero">
+        <span class="badge-urgencia">Electricista Matriculado • Mat. COPIME 45.821</span>
+        <h1>Soluciones Eléctricas Seguras y <span>Urgencias a Domicilio</span></h1>
+        <p>Detección de cortocircuitos, armado de tableros con disyuntores, cableado domiciliario y comercial. Presupuestos claros y trabajos con garantía escrita.</p>
+        <div class="cta-grupo">
+            <a href="https://wa.me/5491100000000?text=Hola,%20necesito%20consultar%20por%20un%20trabajo%20de%20electricidad" target="_blank" rel="noopener noreferrer" class="btn-wsp">
+                Pedir Presupuesto por WhatsApp
+            </a>
+            <a href="#servicios" class="btn-presupuesto">Ver Trabajos</a>
+        </div>
+    </section>
+
+    <section id="servicios" class="seccion">
+        <div class="encabezado-seccion">
+            <h2>Servicios Eléctricos</h2>
+            <p>Instalaciones bajo reglamentación vigente AEA para hogares, consorcios y locales</p>
+        </div>
+
+        <div class="grid-servicios">
+            <div class="tarjeta">
+                <h3>🔌 Urgencias y Cortocircuitos</h3>
+                <p>Búsqueda de fallas, fugas a tierra, cortes parciales de fase y recambio inmediato de llaves térmicas o disyuntores.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>🧰 Tableros y Puesta a Tierra</h3>
+                <p>Armado y modernización de tableros seccionales, instalación de jabalinas y protectores de alta/baja tensión.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>💡 Iluminación y Ventilación</h3>
+                <p>Colocación de luminarias LED, reflectores exteriores con fotocélula, ventiladores de techo y tomas adicionales.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>📋 Certificaciones DCI</h3>
+                <p>Medición de puesta a tierra, planos eléctricos y certificados de aptitud eléctrica para habilitaciones comerciales y medidores.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="garantias">
+        <div class="grid-garantias">
+            <div class="garantia-item">
+                <h4>✓ Instrumental Homologado</h4>
+                <p>Diagnóstico preciso con pinza amperométrica, telurímetro y detector de tensión sin romper de más.</p>
+            </div>
+            <div class="garantia-item">
+                <h4>✓ Materiales Normalizados</h4>
+                <p>Trabajamos exclusivamente con cables y protecciones aprobadas bajo normas IRAM.</p>
+            </div>
+            <div class="garantia-item">
+                <h4>✓ Respuesta Rápida</h4>
+                <p>Atención en el día en CABA y GBA Sur / Oeste con tarifa transparente antes de iniciar.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <p><strong>ElectroSegura — Servicios Eléctricos Integrales</strong></p>
+        <p>Guardia Técnica (Ejemplo): (011) 15-0000-0000 • Lunes a Sábados y Urgencias 24 hs</p>
+        <div class="aviso-demo">
+            Diseño web demostrativo desarrollado por <strong>Marcelo Narváez</strong> • Sitio responsivo y seguro.
+        </div>
+    </footer>
+
+</body>
+</html>
