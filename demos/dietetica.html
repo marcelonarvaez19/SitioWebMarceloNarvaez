@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">
+    <title>Almacén Natural Raíces | Dietética y Productos Saludables</title>
+    <meta name="description" content="Dietética y almacén natural. Frutos secos, harinas integrales, productos sin TACC, suplementos naturales y envíos a domicilio.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde-bosque: #1b4332;
+            --verde-hoja: #2d6a4f;
+            --verde-claro: #d8f3dc;
+            --crema: #faf9f5;
+            --tierra: #bc6c25;
+            --texto-oscuro: #1f2937;
+            --texto-gris: #4b5563;
+            --blanco: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--crema);
+            color: var(--texto-oscuro);
+            line-height: 1.6;
+        }
+
+        /* Barra superior demo */
+        .barra-demo {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.85rem;
+            border-bottom: 2px solid #ffc107;
+        }
+
+        .barra-demo a {
+            color: #ffc107;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .barra-demo a:hover {
+            text-decoration: underline;
+        }
+
+        /* Navegación */
+        header {
+            background-color: var(--blanco);
+            padding: 18px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--verde-bosque);
+        }
+
+        .logo span {
+            color: var(--tierra);
+        }
+
+        .btn-nav {
+            background-color: var(--verde-hoja);
+            color: var(--blanco);
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .btn-nav:hover {
+            background-color: var(--verde-bosque);
+        }
+
+        /* Hero con imagen de fondo traslúcida */
+        .hero {
+            background-image:
+                linear-gradient(135deg, rgba(250, 249, 245, 0.88) 0%, rgba(216, 243, 220, 0.82) 100%),
+                url('../img/img_Dietetica.webp');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 75px 5%;
+            text-align: center;
+        }
+
+        .badge-rubro {
+            display: inline-block;
+            background-color: var(--blanco);
+            color: var(--verde-bosque);
+            border: 1px solid #b7e4c7;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            color: var(--verde-bosque);
+            max-width: 750px;
+            margin: 0 auto 16px auto;
+            line-height: 1.25;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--texto-gris);
+            max-width: 630px;
+            margin: 0 auto 30px auto;
+        }
+
+        .botones-hero {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-wsp {
+            background-color: #16a34a;
+            color: var(--blanco);
+            padding: 14px 26px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn-wsp:hover {
+            background-color: #15803d;
+            transform: translateY(-2px);
+        }
+
+        .btn-secundario {
+            background-color: var(--blanco);
+            color: var(--verde-bosque);
+            border: 2px solid var(--verde-hoja);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-secundario:hover {
+            background-color: var(--verde-claro);
+        }
+
+        /* Sección Productos */
+        .seccion {
+            padding: 65px 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .titulo-seccion h2 {
+            font-size: 1.9rem;
+            color: var(--verde-bosque);
+            margin-bottom: 8px;
+        }
+
+        .titulo-seccion p {
+            color: var(--texto-gris);
+        }
+
+        .grid-servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .card-servicio {
+            background-color: var(--blanco);
+            padding: 28px 24px;
+            border-radius: 12px;
+            border-top: 4px solid var(--verde-hoja);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-servicio h3 {
+            font-size: 1.15rem;
+            color: var(--verde-bosque);
+            margin-bottom: 10px;
+        }
+
+        .card-servicio p {
+            font-size: 0.95rem;
+            color: var(--texto-gris);
+        }
+
+        /* Banda beneficios */
+        .banda-confianza {
+            background-color: var(--verde-bosque);
+            color: var(--blanco);
+            padding: 45px 5%;
+            text-align: center;
+        }
+
+        .banda-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .banda-item strong {
+            display: block;
+            font-size: 1.15rem;
+            color: #b7e4c7;
+            margin-bottom: 4px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #143627;
+            color: #d1fae5;
+            text-align: center;
+            padding: 45px 5%;
+        }
+
+        footer h2 {
+            color: var(--blanco);
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="barra-demo">
+        <span>Vista previa de diseño web para comercios (Rubro: Dietética / Almacén Natural)</span>
+        <a href="../index.html#sitio-web">← Volver a Sitio Web Personalizado</a>
+    </div>
+
+    <header>
+        <div class="logo">Dietetica <span>Saludable</span></div>
+        <a href="#contacto" class="btn-nav">Hacer Pedido</a>
+    </header>
+
+    <section class="hero">
+        <span class="badge-rubro">Venta Suelta y Envasada • Opciones Sin TACC y Veganas</span>
+        <h1>Alimentación Saludable y Productos Naturales Todos los Días</h1>
+        <p>Frutos secos seleccionados, semillas, harinas integrales, legumbres, especias y suplementos dietarios. Armá tu pedido y recibilo en tu domicilio.</p>
+        <div class="botones-hero">
+            <a href="https://wa.me/5491100000000?text=Hola,%20quisiera%20consultar%20por%20productos%20de%20la%20diet%C3%A9tica" target="_blank" rel="noopener noreferrer" class="btn-wsp">Pedir por WhatsApp</a>
+            <a href="#productos" class="btn-secundario">Ver Categorías</a>
+        </div>
+    </section>
+
+    <section id="productos" class="seccion">
+        <div class="titulo-seccion">
+            <h2>Nuestros Productos Destacados</h2>
+            <p>Mercadería fresca con rotación semanal y fraccionamiento a medida</p>
+        </div>
+        <div class="grid-servicios">
+            <article class="card-servicio">
+                <h3>Frutos Secos y Semillas</h3>
+                <p>Almendras, nueces, castañas, avellanas, chía, lino, sésamo y mixes energéticos ideales para desayunos y colaciones.</p>
+            </article>
+            <article class="card-servicio">
+                <h3>Harinas y Cereales</h3>
+                <p>Harina integral, de almendras, de coco, de garbanzos, avena arrollada, granola artesanal y cereales sin azúcar agregada.</p>
+            </article>
+            <article class="card-servicio">
+                <h3>Línea Sin TACC y Vegana</h3>
+                <p>Amplia variedad de galletitas, premezclas, leches vegetales, untables y productos certificados aptos para celíacos.</p>
+            </article>
+            <article class="card-servicio">
+                <h3>Hierbas, Infusiones y Miel</h3>
+                <p>Té en hebras, hierbas medicinales, yerba orgánica, miel pura de campo, aceites de oliva y condimentos naturales.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="banda-confianza">
+        <div class="banda-grid">
+            <div class="banda-item">
+                <strong>Compra Suelta por Peso</strong>
+                <span>Llevá exactamente la cantidad que necesitás</span>
+            </div>
+            <div class="banda-item">
+                <strong>Envíos en el Día</strong>
+                <span>Entregas rápidas en la zona sin moverte de tu casa</span>
+            </div>
+            <div class="banda-item">
+                <strong>Asesoramiento Cercano</strong>
+                <span>Te ayudamos a elegir opciones según tu alimentación</span>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <h2>¿Querés recibir nuestra lista de precios actualizada?</h2>
+        <p>Escribinos por WhatsApp, te pasamos el catálogo del día y preparamos tu pedido para retirar o enviar.</p>
+        <a href="https://wa.me/5491100000000?text=Hola,%20me%20pas%C3%A1s%20la%20lista%20de%20precios%20de%20la%20diet%C3%A9tica?" target="_blank" rel="noopener noreferrer" class="btn-wsp">Solicitar Catálogo por WhatsApp</a>
+    </footer>
+
+</body>
+</html>
+
+
+      
+       
+
+      
+
+       
+
+
+      
+
+   
