@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">
+    <title>Limpieza Total | Artículos de Limpieza Sueltos y Envasados</title>
+    <meta name="description" content="Casa de artículos de limpieza para el hogar, consorcios y comercios. Productos sueltos concentrados, primeras marcas, papeles y envíos a domicilio.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul-profundo: #0c4a6e;
+            --azul-limpio: #0284c7;
+            --celeste-suave: #e0f2fe;
+            --fondo-claro: #f8fafc;
+            --menta: #0d9488;
+            --texto-oscuro: #0f172a;
+            --texto-gris: #475569;
+            --blanco: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--fondo-claro);
+            color: var(--texto-oscuro);
+            line-height: 1.6;
+        }
+
+        /* Barra superior demo */
+        .barra-demo {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.85rem;
+            border-bottom: 2px solid #ffc107;
+        }
+
+        .barra-demo a {
+            color: #ffc107;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .barra-demo a:hover {
+            text-decoration: underline;
+        }
+
+        /* Navegación */
+        header {
+            background-color: var(--blanco);
+            padding: 18px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--azul-profundo);
+        }
+
+        .logo span {
+            color: var(--azul-limpio);
+        }
+
+        .btn-nav {
+            background-color: var(--azul-limpio);
+            color: var(--blanco);
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .btn-nav:hover {
+            background-color: var(--azul-profundo);
+        }
+
+        /* Hero con imagen de fondo traslúcida */
+        .hero {
+            background-image:
+                linear-gradient(135deg, rgba(240, 249, 255, 0.48) 0%, rgba(224, 242, 254, 0.42) 100%),
+                url('../img/img_Limpieza.webp');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 75px 5%;
+            text-align: center;
+        }
+
+        .badge-rubro {
+            display: inline-block;
+            background-color: var(--blanco);
+            color: var(--azul-profundo);
+            border: 1px solid #bae6fd;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            color: var(--azul-profundo);
+            max-width: 760px;
+            margin: 0 auto 16px auto;
+            line-height: 1.25;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--texto-gris);
+            max-width: 640px;
+            margin: 0 auto 30px auto;
+        }
+
+        .botones-hero {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-wsp {
+            background-color: #16a34a;
+            color: var(--blanco);
+            padding: 14px 26px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn-wsp:hover {
+            background-color: #15803d;
+            transform: translateY(-2px);
+        }
+
+        .btn-secundario {
+            background-color: var(--blanco);
+            color: var(--azul-profundo);
+            border: 2px solid var(--azul-limpio);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-secundario:hover {
+            background-color: var(--celeste-suave);
+        }
+
+        /* Sección Productos */
+        .seccion {
+            padding: 65px 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .titulo-seccion h2 {
+            font-size: 1.9rem;
+            color: var(--azul-profundo);
+            margin-bottom: 8px;
+        }
+
+        .titulo-seccion p {
+            color: var(--texto-gris);
+        }
+
+        .grid-servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .card-servicio {
+            background-color: var(--blanco);
+            padding: 28px 24px;
+            border-radius: 12px;
+            border-top: 4px solid var(--azul-limpio);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-servicio h3 {
+            font-size: 1.15rem;
+            color: var(--azul-profundo);
+            margin-bottom: 10px;
+        }
+
+        .card-servicio p {
+            font-size: 0.95rem;
+            color: var(--texto-gris);
+        }
+
+        /* Banda beneficios */
+        .banda-confianza {
+            background-color: var(--azul-profundo);
+            color: var(--blanco);
+            padding: 45px 5%;
+            text-align: center;
+        }
+
+        .banda-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .banda-item strong {
+            display: block;
+            font-size: 1.15rem;
+            color: #7dd3fc;
+            margin-bottom: 4px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #082f49;
+            color: #e0f2fe;
+            text-align: center;
+            padding: 45px 5%;
+        }
+
+        footer h2 {
+            color: var(--blanco);
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="barra-demo">
+        <span>Vista previa de diseño web para comercios (Rubro: Artículos de Limpieza)</span>
+        <a href="../index.html#sitio-web">← Volver a Sitio Web</a>
+    </div>
+
+    <header>
+        <div class="logo">Limpieza <span>Total</span></div>
+        <a href="#contacto" class="btn-nav">Hacer Pedido</a>
+    </header>
+
+    <section class="hero">
+        <span class="badge-rubro">Venta Minorista y Mayorista • Hogar, Consorcios y Empresas</span>
+        <h1>Todo en Artículos de Limpieza Sueltos y Primeras Marcas</h1>
+        <p>Jabón líquido, suavizantes, lavandina, desinfectantes concentrados, bolsas de consorcio y papeles. Rendimiento real al mejor precio de la zona.</p>
+        <div class="botones-hero">
+            <a href="https://wa.me/5491100000000?text=Hola,%20quisiera%20consultar%20precios%20de%20art%C3%ADculos%20de%20limpieza" target="_blank" rel="noopener noreferrer" class="btn-wsp">Pedir por WhatsApp</a>
+            <a href="#productos" class="btn-secundario">Ver Rubros</a>
+        </div>
+    </section>
+
+    <section id="productos" class="seccion">
+        <div class="titulo-seccion">
+            <h2>Nuestras Líneas de Productos</h2>
+            <p>Soluciones completas para el mantenimiento diario y la limpieza profunda</p>
+        </div>
+        <div class="grid-servicios">
+            <article class="card-servicio">
+                <h3>Productos Sueltos Concentrados</h3>
+                <p>Jabón para ropa tipo primeras marcas, suavizantes perfumados, detergente desengrasante, lavandina y limpiadores de pisos por litro o bidón.</p>
+            </article>
+            <article class="card-servicio">
+                <h3>Papelería y Descartables</h3>
+                <p>Rollo de cocina, papel higiénico institucional, servilletas, bobinas industriales y bolsas de residuo y consorcio de todas las medidas.</p>
+            </article>
+            <article class="card-servicio">
+                <h3>Accesorios y Herramientas</h3>
+                <p>Mopas, baldes escurridores, secadores de goma, escobillones, paños de microfibra, esponjas y pulverizadores reforzados.</p>
+            </article>
+            <article class="card-servicio">
+                <h3>Combos Hogar y Consorcios</h3>
+                <p>Packs mensuales armados a medida con descuento por cantidad para familias, edificios, oficinas y comercios.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="banda-confianza">
+        <div class="banda-grid">
+            <div class="banda-item">
+                <strong>Recarga de Envases</strong>
+                <span>Traé tu bidón y ahorrá cuidando el bolsillo</span>
+            </div>
+            <div class="banda-item">
+                <strong>Envíos a Domicilio</strong>
+                <span>Entregas programadas en el barrio y alrededores</span>
+            </div>
+            <div class="banda-item">
+                <strong>Atención a Consorcios</strong>
+                <span>Presupuestos mayoristas y entregas mensuales</span>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <h2>¿Necesitás reponer limpieza en tu casa o comercio?</h2>
+        <p>Pedinos la lista de precios por WhatsApp y coordinamos la entrega en tu domicilio.</p>
+        <a href="https://wa.me/5491100000000?text=Hola,%20me%20pas%C3%A1s%20la%20lista%20de%20precios%20de%20limpieza?" target="_blank" rel="noopener noreferrer" class="btn-wsp">Solicitar Lista por WhatsApp</a>
+    </footer>
+
+</body>
+</html>
